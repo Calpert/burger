@@ -1,39 +1,36 @@
-{{!-- <div class= "container">
+<div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-md-4">
+            <p>Burger's Available</p>
+            {{#each burger_data}}
+            {{#unless this.devoured}}
+            <pre>{{this.id}}. {{this.burger_name}}</pre>
+            <form class="devour-form">
+                <pre value=></pre>
+                <button class="burger_id" value={{this.id}} type="submit">Devour It!</button>
+            </form>
+            {{!-- Additional Code HERE --}}
+            {{/unless}}
+            {{/each}}
         </div>
-        <div class="col">
-            <div class="row">
-                {{#each burger_data}}
-                {{#unless this.devoured}}
-                <div class="col">
-                    <pre>{{this.id}}. {{this.burger_name}}</pre>
-                </div>
-                <div class="col">
-                    <form class="devour-form">
-                    <input value={{this.id}}></input>
-                    <button type="submit">Devour It!</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <p>Eaten Burgers</p>
             {{#each burger_data}}
             {{#if this.devoured}}
-            <input placeholder="{{this.id}} . {{this.burger_name}}">
+            <p>{{this.burger_name}}</p>
             {{/if}}
             {{/each}}
         </div>
     </div>
-</div>
-{{!-- <div class="container">
     <div class="row">
-        <div class="col">
-            <form action="/burger/create" method="POST">
-            <input type="text" name="burger_name" value=""><input>
-            <button type="submit">Submit</button>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/burgers/create" method="POST">
+                <input placeholder="Add Burger's Here" name="burger_name" value="" id="entered_text" />
+                <button type="submit">Submit</button>
             </form>
-            <p>Enter a burger you want to eat</p>
         </div>
+        <div class="col-md-3"></div>
     </div>
-</div> --}}
+</div>
